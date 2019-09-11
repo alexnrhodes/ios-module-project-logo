@@ -13,7 +13,7 @@ import UIKit
     private let glassesWidth: CGFloat = 10
     private let glassesColor: UIColor = .black
     private let borderWidth: CGFloat = 8
-    private let white: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    private let glassesGrey: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -52,7 +52,7 @@ import UIKit
             context.move(to: leftNose)
             context.addQuadCurve(to: rightNose, control: curvePoint)
             
-            context.setStrokeColor(white.cgColor)
+            context.setStrokeColor(glassesGrey.cgColor)
             context.setLineWidth(borderWidth)
             context.strokePath()
             
@@ -62,7 +62,7 @@ import UIKit
             
             context.addEllipse(in: leftEyeBorder)
             context.setLineWidth(glassesWidth)
-            context.setStrokeColor(white.cgColor)
+            context.setStrokeColor(glassesGrey.cgColor)
             context.strokePath()
 
 
@@ -72,13 +72,33 @@ import UIKit
             
             context.addEllipse(in: rightEyeBorder)
             context.setLineWidth(glassesWidth)
-            context.setStrokeColor(white.cgColor)
+            context.setStrokeColor(glassesGrey.cgColor)
             context.strokePath()
             
             
+            
+            let leftEdgePieceR = CGPoint(x: rect.size.width * 0.085, y: rect.size.height * 0.555)
+            
+            let leftEdgePieceL = CGPoint(x: rect.size.width * 0.13, y: rect.size.height * 0.555)
+            
+            context.move(to: leftEdgePieceL)
+            context.addLine(to: leftEdgePieceR)
+            
+            context.setLineWidth(glassesWidth)
+            context.setStrokeColor(glassesGrey.cgColor)
+            context.strokePath()
+            
+            let rightEdgePieceR = CGPoint(x: rect.size.width * 0.915, y: rect.size.height * 0.555)
+            
+            let rightEdgePieceL = CGPoint(x: rect.size.width * 0.87, y: rect.size.height * 0.555)
+            
+            context.move(to: rightEdgePieceL)
+            context.addLine(to: rightEdgePieceR)
+            
+            context.setLineWidth(glassesWidth)
+            context.setStrokeColor(glassesGrey.cgColor)
+            context.strokePath()
         }
-        
-        
         
     }
     
